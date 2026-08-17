@@ -105,123 +105,202 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Create a table named Employees with the following constraints:
+
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
 
 ```sql
--- Paste your SQL code below for Question 1
+CREATE TABLE Employees (
+EmployeeID INT PRIMARY KEY,
+FirstName VARCHAR(50) NOT NULL,
+LastName  VARCHAR(50) NOT NULL,
+Email VARCHAR(100) UNIQUE,
+Salary INT CHECK (Salary>0),
+DepartmentID INT REFERENCES Departments(departmentID)
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1290" height="307" alt="image" src="https://github.com/user-attachments/assets/5c4c02c8-2fcb-4938-8a1a-ebc54a9dff5a" />
+
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL Query  to change the name of attribute "name" to "first_name"  and add mobilenumber as number ,DOB as Date in the table Companies. 
 
 ```sql
--- Paste your SQL code below for Question 2
+ALTER TABLE Companies RENAME COLUMN name TO first_name;
+ALTER TABLE Companies ADD mobilenumb number;
+ALTER TABLE Companies ADD DOB Date;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1172" height="302" alt="image" src="https://github.com/user-attachments/assets/b36bd8df-5fbd-4ded-b345-2810f0bf86e6" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Insert the below data into the Employee table, allowing the Department and Salary columns to take their default values.
+
+EmployeeID  Name         Position
+----------  -----------  ----------
+4           Emily White  Analyst
+
+Note: The Department and Salary columns will use their default values.    
 
 ```sql
--- Paste your SQL code below for Question 3
+INSERT INTO Employee (EmployeeID, Name, Position)
+VALUES (4, 'Emily White', 'Analyst');
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="747" height="265" alt="image" src="https://github.com/user-attachments/assets/9d11281d-6b93-4df7-861e-a46a73b118af" />
+ 
 
 **Question 4**
 ---
--- Paste Question 4 here
+Create a table named Products with the following constraints:
+ProductID as INTEGER should be the primary key.
+ProductName as TEXT should be unique and not NULL.
+Price as REAL should be greater than 0.
+StockQuantity as INTEGER should be non-negative.
 
 ```sql
--- Paste your SQL code below for Question 4
+CREATE TABLE Products (
+ProductID INTEGER PRIMARY KEY,
+ProductName TEXT UNIQUE NOT NULL,
+Price REAL CHECK (Price>0),
+StockQuantity INTEGER CHECK (StockQuantity >= 0)
+);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1150" height="167" alt="image" src="https://github.com/user-attachments/assets/1063cb46-4e71-46ac-bc2d-2ee3e54a3f61" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to Add a new ParentsNumber column  as number and Adhar_Number as Number in the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 5
+ALTER TABLE Student_details ADD ParentsNumber number;
+ALTER TABLE Student_details ADD Adhar_Number number;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1185" height="292" alt="image" src="https://github.com/user-attachments/assets/98c2ceda-43ee-48df-9d76-33917019ac65" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+Insert the following products into the Products table:
+
+Name        Category     Price       Stock
+----------  -----------  ----------  ----------
+Smartphone  Electronics  800         150
+Headphones  Accessories  200         300
 
 ```sql
--- Paste your SQL code below for Question 6
+INSERT INTO Products (Name, Category, Price, Stock) VALUES
+('Smartphone', 'Electronics', 800, 150),
+('Headphones', 'Accessories', 200,300);
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="987" height="267" alt="image" src="https://github.com/user-attachments/assets/c723c32d-67bb-4755-9926-0f80dc331551" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Create a table named Invoices with the following constraints:
+
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+DueDate as DATE should be greater than the InvoiceDate.
+Amount as REAL should be greater than 0.
 
 ```sql
--- Paste your SQL code below for Question 7
+CREATE TABLE Invoices (
+InvoiceID INTEGER PRIMARY KEY,
+InvoiceDate DATE,
+DueDate DATE CHECK(DueDate > InvoiceDate),
+Amount REAL CHECK(Amount > 0)
+);
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1010" height="220" alt="image" src="https://github.com/user-attachments/assets/a249ce4b-9510-40b5-8340-792708b320be" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Create a table named Orders with the following constraints:
+OrderID as INTEGER should be the primary key.
+OrderDate as DATE should be not NULL.
+CustomerID as INTEGER should be a foreign key referencing Customers(CustomerID).
 
 ```sql
--- Paste your SQL code below for Question 8
+CREATE TABLE Orders (
+OrderID INTEGER PRIMARY KEY,
+OrderDate DATE NOT NULL,
+CustomerID INTEGER REFERENCES Customers(CustomerID)
+);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1290" height="217" alt="image" src="https://github.com/user-attachments/assets/52a1dc60-c6d9-4729-9be8-c5ceda1b6ba8" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Insert all products from Discontinued_products into Products.
+
+Table attributes are ProductID, ProductName, Price, Stock
 
 ```sql
--- Paste your SQL code below for Question 9
+INSERT INTO Products SELECT * FROM Discontinued_products;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="863" height="217" alt="image" src="https://github.com/user-attachments/assets/f348af5c-162a-438c-b9f4-f4c523fdd0f6" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Create a table named Employees with the following columns:
+
+EmployeeID as INTEGER
+FirstName as TEXT
+LastName as TEXT
+HireDate as DATE
 
 ```sql
--- Paste your SQL code below for Question 10
+CREATE TABLE Employees 
+(EmployeeID  INTEGER,
+FirstName  TEXT,
+LastName  TEXT,
+HireDate  DATE
+);
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1072" height="233" alt="image" src="https://github.com/user-attachments/assets/214309e7-ecb7-43ee-ba83-e3035f4b3973" />
+
+
 
 
 ## RESULT
