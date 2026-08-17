@@ -47,123 +47,226 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+Write a SQL statement to Update the grade of all customers in Chennai city as  5. 
+
+Customer table (customer_id,cust_name,city,grade,salesman_id)
 
 ```sql
--- Paste your SQL code below for Question 1
+VUPDATE customer 
+SET grade = 5
+WHERE city = 'Chennai';
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1112" height="335" alt="image" src="https://github.com/user-attachments/assets/045cde5d-00c5-45fa-b337-918d2bd12b5e" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL statement to Increase quantity of all products by 10% to adjust for surplus stock counted
+
+Products table
+
+---------------
+product_id
+product_name
+category
+cost_price
+sell_price
+reorder_lvl
+quantity
+supplier_id
 
 ```sql
--- Paste your SQL code below for Question 2
+UPDATE Products
+SET quantity=quantity*1.10;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1071" height="330" alt="image" src="https://github.com/user-attachments/assets/1dc3c0bd-765e-49cd-9251-33e54d721ed9" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL statement to Update the address to '58 Lakeview, Magnolia' where supplier ID is 5 in the suppliers table.
+
+Suppliers Table 
+
+name               type
+-----------------  ---------------
+supplier_id        INT
+supplier_name      VARCHAR(100)
+contact_person     VARCHAR(100)
+phone_number       VARCHAR(20)
+email              VARCHAR(100)
+address            VARCHAR(250)
+For example:
 
 ```sql
--- Paste your SQL code below for Question 3
+UPDATE suppliers
+SET address = '58 Lakeview, Magnolia'
+WHERE supplier_id = 5;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1326" height="217" alt="image" src="https://github.com/user-attachments/assets/717f6d83-997a-49d3-9ff8-2af96f813917" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL statement to change salary of employee to 8000 whose Employee ID is 105, if the existing salary is less than 5000.
+
+Employees table
+
+---------------
+employee_id
+first_name
+last_name
+email
+phone_number
+hire_date
+job_id
+salary
+commission_pct
+manager_id
+department_id
 
 ```sql
--- Paste your SQL code below for Question 4
+UPDATE Employees
+SET salary = 8000
+WHERE employee_id = 105 AND salary < 5000;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="937" height="137" alt="image" src="https://github.com/user-attachments/assets/446fd90b-57ba-45db-b552-fd51d7eecf7d" />
+
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL statement to update the product_name as 'Grapefruit' whose product_id is 4 in the products table.
+
+products table
+
+---------------
+product_id
+product_name
+category_id
+availability
 
 ```sql
--- Paste your SQL code below for Question 5
+UPDATE products
+SET product_name = 'Grapefruit'
+WHERE product_id = 4;
 ```
 
 **Output:**
 
-![Output5](output.png)
+
+<img width="505" height="106" alt="image" src="https://github.com/user-attachments/assets/81742a02-b9ee-4b74-8be5-5fb87e32f9b7" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+
+Write a SQL query to Delete customers from 'customer' table where 'WORKING_AREA' is 'New York'.
+
+Sample table: Customer
+
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+  
+|CUST_CODE  | CUST_NAME   | CUST_CITY   | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO     | AGENT_CODE |
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+
+| C00013    | Holmes      | London      | London       | UK           |     2 |     6000.00 |     5000.00 |     7000.00 |       4000.00 | BBBBBBB      | A003       |
+| C00001    | Micheal     | New York    | New York     | USA          |     2 |     3000.00 |     5000.00 |     2000.00 |       6000.00 | CCCCCCC      | A008       |
+| C00020    | Albert      | New York    | New York     | USA          |     3 |     5000.00 |     7000.00 |     6000.00 |       6000.00 | BBBBSBB      | A008       |
 
 ```sql
--- Paste your SQL code below for Question 6
+-- DELETE FROM customer
+WHERE WORKING_AREA ='New York';
 ```
 
 **Output:**
 
-![Output6](output.png)
+
+<img width="1212" height="332" alt="image" src="https://github.com/user-attachments/assets/82d4d0a1-dd6a-4aeb-9b4a-a30deebaa7fb" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to Delete customers with following conditions
+
+'CUST_COUNTRY' is not in a list of specified countries ('UK', 'USA', 'Canada')
+'GRADE' is greater than or equal to 3
 
 ```sql
--- Paste your SQL code below for Question 7
+DELETE FROM Customer
+WHERE CUST_COUNTRY NOT IN ('UK','USA','Canada')
+ AND GRADE >= 3;
 ```
 
 **Output:**
 
-![Output7](output.png)
+
+<img width="1218" height="186" alt="image" src="https://github.com/user-attachments/assets/44766142-5e20-46e9-95a4-aac8975f6288" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL query to Delete customers from 'customer' table where 'OPENING_AMT' is between 4000 and 6000.
+
+Sample table: Customer
 
 ```sql
--- Paste your SQL code below for Question 8
+DELETE FROM customer
+WHERE OPENING_AMT BETWEEN 4000 AND 6000;
 ```
 
 **Output:**
 
-![Output8](output.png)
+
+<img width="1096" height="225" alt="image" src="https://github.com/user-attachments/assets/5ba06740-f609-4adf-bf2f-fea161b54a85" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to Delete a Specific Surgery whose ID is 3
+
+Sample table: Surgeries
+
+attributes: surgery_id, patient_id, surgeon_id, surgery_date
 
 ```sql
--- Paste your SQL code below for Question 9
+DELETE FROM Surgeries
+WHERE surgery_id = 3;
 ```
 
 **Output:**
 
-![Output9](output.png)
+
+<img width="835" height="280" alt="image" src="https://github.com/user-attachments/assets/2b516e7b-6909-43b9-8924-b3c0c8521052" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to Delete customers with 'GRADE' 2 and 'CUST_NAME' starting with 'M', and whose 'PAYMENT_AMT' is less than 3000
+
+Sample table: Customer
 
 ```sql
--- Paste your SQL code below for Question 10
+DELETE FROM Customer
+WHERE GRADE = 2
+AND CUST_NAME LIKE 'M%'
+AND PAYMENT_AMT <3000;
 ```
 
 **Output:**
 
-![Output10](output.png)
+
+<img width="1037" height="153" alt="image" src="https://github.com/user-attachments/assets/86c94241-2cee-4d29-b10d-41b2a6fdba57" />
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
