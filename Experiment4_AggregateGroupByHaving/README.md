@@ -1,3 +1,4 @@
+
 # Experiment 4: Aggregate Functions, Group By and Having Clause
 
 ## AIM
@@ -38,123 +39,211 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+How many prescriptions were written by each doctor?
+
+Sample tablePrescriptions Table
+
+<img width="1082" height="154" alt="image (8)" src="https://github.com/user-attachments/assets/847c2cd4-6f98-4861-8fcf-c4b6314b136a" />
+
+
 
 ```sql
--- Paste your SQL code below for Question 1
+SELECT DoctorID, COUNT(PrescriptionID) AS TotalPrescriptions
+FROM Prescriptions
+GROUP BY DoctorID;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="456" height="526" alt="image" src="https://github.com/user-attachments/assets/1167e070-465f-4a48-8e08-d19587cbed42" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+How many medical records does each doctor have?
+
+Sample table:MedicalRecords Table
+
+<img width="1089" height="164" alt="image (6)" src="https://github.com/user-attachments/assets/eafc4097-884e-4574-8cb9-eba75adc95db" />
+
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT DoctorID, COUNT(*) AS TotalRecords
+FROM MedicalRecords
+GROUP BY DoctorID;
 ```
 
 **Output:**
+<img width="385" height="467" alt="image" src="https://github.com/user-attachments/assets/73ec8555-470d-4010-8915-ed3bf7f7da81" />
 
-![Output2](output.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+What is the total number of medications prescribed for each patient?
+
+Sample tablePrescriptions Table
+
+<img width="1082" height="154" alt="image (8)" src="https://github.com/user-attachments/assets/6ae5c6fa-3acd-4517-b033-2fc669a21ac8" />
 
 ```sql
--- Paste your SQL code below for Question 3
+SELECT PatientID, COUNT(Medication) AS TotalMedications
+FROM Prescriptions
+GROUP BY PatientID;
+
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="426" height="551" alt="image" src="https://github.com/user-attachments/assets/3ab1e566-5d30-43cc-b83f-a9ff23f9c585" />
+
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to return the total number of rows in the 'customer' table where the city is not Noida.
+
+Sample table: customer
+
+<img width="668" height="138" alt="image (3)" src="https://github.com/user-attachments/assets/9130007b-6309-4753-9e42-0b4c8f1ebe2f" />
+
 
 ```sql
--- Paste your SQL code below for Question 4
+SELECT COUNT(*) AS COUNT
+FROM customer
+WHERE city != 'Noida';
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="221" height="235" alt="image" src="https://github.com/user-attachments/assets/bf7fa4e1-27c2-4c78-864c-b0c7e9881d57" />
+
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to find What is the age difference between the youngest and oldest employee in the company.
+
+Table: employee
+
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+age         INTEGER
+city        TEXT
+income      INTEGER
+
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT MAX(age)- MIN(age) AS age_difference
+FROM employee;
 ```
 
 **Output:**
+<img width="266" height="237" alt="image" src="https://github.com/user-attachments/assets/bed14764-065c-4317-9e7f-76ab14751b8b" />
 
-![Output5](output.png)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to find  how many employees work in California?
+
+Table: employee
+
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+age         INTEGER
+city        TEXT
+income      INTEGER
 
 ```sql
--- Paste your SQL code below for Question 6
+SELECT COUNT(*) AS employees_in_california
+FROM employee
+WHERE city ='California';
 ```
 
 **Output:**
+<img width="372" height="240" alt="image" src="https://github.com/user-attachments/assets/ff5dc015-7522-46b4-b4cb-9c462bd1fe79" />
 
-![Output6](output.png)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to find the number of employees whose age is greater than 32.
+
+Sample table: employee
+
 
 ```sql
--- Paste your SQL code below for Question 7
+SELECT COUNT(*) AS COUNT
+FROM employee
+WHERE age > 32;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="213" height="241" alt="image" src="https://github.com/user-attachments/assets/68fc0dce-4833-4a91-8bda-b09bbef6ea73" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write the SQL query that achieves the grouping of data by age intervals using the expression (age/5)5, calculates the average age for each group, and excludes groups where the average age is not less than 24.
+
+<img width="992" height="173" alt="unnamed" src="https://github.com/user-attachments/assets/6a26f95d-b1a8-4523-9274-1a85b737aea5" />
+
 
 ```sql
--- Paste your SQL code below for Question 8
+SELECT (age/5)*5 AS age_group, AVG(age)
+FROM customer1
+GROUP BY (age/5)*5
+HAVING AVG(age)<24;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="372" height="243" alt="image" src="https://github.com/user-attachments/assets/fbbb4b64-796b-46f7-912a-2e21aba56485" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write the SQL query that achieves the grouping of data by age, calculates the minimum income for each age group, and includes only those age groups where the minimum income is less than 400,000.
+
+Sample table: employee
+
+<img width="1011" height="215" alt="unnamed" src="https://github.com/user-attachments/assets/d260d7f3-fe2a-4559-aaa1-6fdeba608914" />
+
 
 ```sql
--- Paste your SQL code below for Question 9
+SELECT age, MIN(income)
+FROM employee
+GROUP BY age
+HAVING MIN(income) < 400000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="380" height="287" alt="image" src="https://github.com/user-attachments/assets/c3b14df7-46c2-4c15-9d73-3a8530df28a8" />
+
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write the SQL query that achieves the grouping of data by occupation, calculates the minimum work hours for each occupation, and excludes occupations where the minimum work hour is not greater than 8.
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT occupation, MIN(workhour)
+FROM employee1
+GROUP BY occupation
+HAVING MIN(workhour)>8;
 ```
 
 **Output:**
 
-![Output10](output.png)
+
+<img width="402" height="357" alt="image" src="https://github.com/user-attachments/assets/699b9f8a-16b0-4bc9-ab27-60c540a8c338" />
+
 
 
 ## RESULT
