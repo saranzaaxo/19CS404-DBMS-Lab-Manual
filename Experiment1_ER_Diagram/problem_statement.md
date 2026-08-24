@@ -23,32 +23,36 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### ER Diagram:
 *Paste or attach your diagram here*  
-![ER Diagram](er_diagram_fitness.png)
+
+<img width="797" height="892" alt="Screenshot 2026-08-24 101545" src="https://github.com/user-attachments/assets/6897e944-0141-4097-a77c-3bbb463c3020" />
+
 
 ### Entities and Attributes
-
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+Entity           	Attributes (PK, FK)         	             Notes
+Member	        MemberID ,Membership	              Store member details
+Trainer	       TrainerID,Name,Email,PhoneNumber	    Store Trainer details
+Program	        ProgramID,Cost                      Programs like Zumbz/yoga
+Session        SessionID,SessionDate               	Tracks attendance
+Payment	       PaymentID,Amount	                    Tracks payments by members
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+Relationship	       Cardinality  	Participation	                   Notes
 
+Member-Program         M:N       Optional(Member),                 Member may or may not 
+                                  Mandatory(Enrollment)               join programs
+
+ Trainer-Program	     M:N       Optional(Trainer),                Trainer may or may not           
+                                  Mandatory(Assignment)                    run Programs
+
+ Member–Trainer        1:N       Mandatory (Session),                Session must have a 
+                                   Optional (Member/Trainer)            member & trainer
+                                   
 ### Assumptions
-- 
-- 
-- 
 
----
+Program = recurring class; Session = specific instance.
+Payments cover both memberships and sessions.
+A Session links one Member and one Trainer.
 
 # Scenario B: City Library Event & Book Lending System
 
